@@ -35,6 +35,6 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 15) contato: rafael.castanha@unesp.br
 
-*CAG=(ABA)/(Cardinalidade da lista do orientador).
+*CAG=(Coupling)/(Cardinalidade da lista do orientador).
 
 *A métrica CAG foi desenvolvida por Castanha (2021) em: Coeficiente de acoplamento bibliográfico genealógico para mensurar a intensidade da preservação das correntes teórico-metodológicas nas redes de genealogia acadêmica da área de Matemática (Tese de doutorado em Ciência da Informação - UNESP campus Marília/SP). Consulte "Sobre a métrica CAG"
