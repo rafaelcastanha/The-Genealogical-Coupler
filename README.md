@@ -13,9 +13,9 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 4) Clique em "Coupling!".
 
-5) X1 e X2 representam os itens comparados (ex: Autor 1 e Autor 2 a serem acoplados).
+5) "Orientador" e "Orientandos" representam os itens acoplados.
 
-6) refs_X1 e refs_x2 representam o tamanho (cardinalidade) da lista referências (itens citados) pelos itens citantes: Orientador e Orientandos.
+6) L1 e L2 representam o tamanho (cardinalidade) da lista referências (itens citados) pelos itens citantes: Orientador e Orientandos.
 
 7) "Coupling" representa o número de itens citados em comum entre L1 e L2 (em alusão a Acoplamento Bibliográfico).
 
