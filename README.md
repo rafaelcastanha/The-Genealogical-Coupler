@@ -1,4 +1,4 @@
-# The-Coupler-Academic-Genealogy-version
+# The Coupler: Academic Genealogy version
 Bibliographic coupling in academic genealogy context (between advisor and advisee)
 
 Calcula a intensidade de acoplamento bibliográfico entre orientador e orientandos juntamente com as matrizes de citação, cocitação e acoplamento entre todos atores analisados. 
@@ -15,13 +15,13 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 5) X1 e X2 representam os itens comparados (ex: Autor 1 e Autor 2 a serem acoplados).
 
-6) refs_X1 e refs_x2 representam o tamanho (cardinalidade) da lista referências (itens citados) pelos itens citantes X1 e X2.
+6) refs_X1 e refs_x2 representam o tamanho (cardinalidade) da lista referências (itens citados) pelos itens citantes: Orientador e Orientandos.
 
-7) "Coupling" representa o número de itens citados em comum por X1 e X2 (em alusão a Acoplamento Bibliográfico).
+7) "Coupling" representa o número de itens citados em comum entre L1 e L2 (em alusão a Acoplamento Bibliográfico).
 
 8) Jaccard_Index, Saltons_Cosine e CAG representam as normalizações via Índice de Jaccard, Cosseno de Salton e CAG*.
 
-9) "Unidades de Acoplamento" identifica quais foram a unidades responsáveis por promover a intersecção entre X1 e X2.
+9) "Unidades de Acoplamento" identifica quais foram a unidades responsáveis por promover a intersecção entre L1 e L2.
 
 10) A "Matriz de Citação" não é ponderada e apresenta a matriz booleana de citação composta por 0 ou 1.
 
@@ -35,6 +35,6 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 15) contato: rafael.castanha@unesp.br
 
-*CAG=(Coupling)/(Cardinalidade da lista do orientador).
+*CAG=(Coupling)/L1
 
 *A métrica CAG foi desenvolvida por Castanha (2021) em: Coeficiente de acoplamento bibliográfico genealógico para mensurar a intensidade da preservação das correntes teórico-metodológicas nas redes de genealogia acadêmica da área de Matemática (Tese de doutorado em Ciência da Informação - UNESP campus Marília/SP). Consulte "Sobre a métrica CAG"
