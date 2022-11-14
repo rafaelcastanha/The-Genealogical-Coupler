@@ -32,9 +32,11 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 14) Caso nenhuma das unidades de análise se acoplem entre si, será retornada uma mensagem de alerta.
 
-15) Esta aplicação é derivada de The Coupler: https://rafaelcastanha.shinyapps.io/thecoupler
+15) Web-App em funcionamento em: https://rafaelcastanha.shinyapps.io/thegenealogiccoupler
 
-16) contato: rafael.castanha@unesp.br
+16) Esta aplicação é derivada de The Coupler: https://rafaelcastanha.shinyapps.io/thecoupler
+
+17) contato: rafael.castanha@unesp.br
 
 *CAG=(Coupling)/L1
 
