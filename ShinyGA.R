@@ -156,8 +156,7 @@ server <- function(input, output){
     #Intensidades de ABA
     
     df<-as.data.frame(table(stack(ABA)))
-    
-    
+     
     
     if (nrow(df)==0) {
       
@@ -201,8 +200,7 @@ server <- function(input, output){
       Freq_GA[,novacoluna_3]<-Freq_ABA$Coupling/references[1,2]
       Freq_GA<-Freq_GA[1:(length(corpus)-1),]
       Freq_ABA<-Freq_GA
-      
-      
+            
       #Rede de acoplamento bibliográfico
       
       net_list<-filter(Freq_ABA, Coupling>0)
@@ -251,14 +249,13 @@ server <- function(input, output){
       mtx_aba<-as.data.frame(mtx_aba)
       mtx_aba<-tibble::rownames_to_column(mtx_aba, " ")
       
-      #Matriz Cocitação
-      
-      #mtx cit
-      
+      #Matriz de Citação
+                
       mtx_cit<-as.data.frame.matrix(mtx_cit)
       mtx_cit<-tibble::rownames_to_column(mtx_cit, " ")
       
-      
+      #Matriz Cocitação
+            
       mtx_cocit_df<-as.data.frame(mtx_cocit)
       links_cocit<-data.frame(source=c(mtx_cocit_df$Var1), target=c(mtx_cocit_df$Var2))
       network_cocit<-graph_from_data_frame(d=links_cocit, directed=T)
@@ -267,11 +264,8 @@ server <- function(input, output){
       mtx_adj_cocit_df<-as.data.frame(as.matrix(mtx_adj_cocit))
       mtx_adj_cocit_df<-tibble::rownames_to_column(mtx_adj_cocit_df, " ")
       
-      
-      #Matriz Citação
-      
-      
-      
+      #Outputs
+                      
       output$erro<-renderText({
         
         input$runmodel
@@ -280,6 +274,8 @@ server <- function(input, output){
         
       })
       
+      #Plots
+   
       output$PlotCoupling <- renderVisNetwork({
         
         input$runmodel
@@ -325,6 +321,8 @@ server <- function(input, output){
         
       })
       
+      #Output Tabelas
+      
       output$DataFrameCoupling <- renderDataTable(Freq_ABA)
       
       output$DataFrameUnits <- renderDataTable(units_final)
@@ -334,6 +332,8 @@ server <- function(input, output){
       output$DataFrameMatrix <- renderDataTable(mtx_aba)
       
       output$DataFrameCocit <- renderDataTable(mtx_adj_cocit_df)
+      
+      #Downloads
       
       output$dlfreq <- downloadHandler(
         filename = function(){
@@ -356,7 +356,7 @@ server <- function(input, output){
           paste("Matriz de Citacao", "txt", sep=".")
         },
         content = function(file){
-          write.table(mtx_citation, file, sep="\t", row.names = F, col.names = TRUE)
+          write.table(mtx_cit, file, sep="\t", row.names = F, col.names = TRUE)
         })
       
       
@@ -381,4 +381,6 @@ server <- function(input, output){
   
 }
 
+ #Rodar The Genealogic Coupler      
+          
 shinyApp(ui, server)
