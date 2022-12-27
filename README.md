@@ -1,5 +1,7 @@
 # The Genealogic Coupler
 
+![alt text](https://rafaelcastanha.shinyapps.io/thegenealogiccoupler/_w_e8cbf9a8/gc.png)
+
 Bibliographic coupling in academic genealogy context (between advisor and advisee)
 
 Calcula a intensidade de acoplamento bibliográfico entre orientador e orientandos juntamente com as matrizes de citação, cocitação e acoplamento entre todos atores analisados. 
