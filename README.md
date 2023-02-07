@@ -1,4 +1,4 @@
-# The Genealogic Coupler
+# The Genealogical Coupler
 
 ![alt text](https://raw.githubusercontent.com/rafaelcastanha/The-Genealogic-Coupler/main/gacoupler_git.bmp)
 
