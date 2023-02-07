@@ -1,6 +1,6 @@
 # The Genealogical Coupler
 
-![alt text](https://raw.githubusercontent.com/rafaelcastanha/The-Genealogic-Coupler/main/gacoupler_git.bmp)
+![alt text](https://raw.githubusercontent.com/rafaelcastanha/The-Genealogical-Coupler/main/logo_gc.png)
 
 Bibliographic coupling in academic genealogy context (between advisor and advisee)
 
