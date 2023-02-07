@@ -22,7 +22,7 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 8) "Coupling" representa o número de itens citados em comum entre L1 e L2 (em alusão a Acoplamento Bibliográfico).
 
-9) Jaccard_Index, Saltons_Cosine e CAG representam as normalizações via Índice de Jaccard, Cosseno de Salton e CAG*.
+9) Jaccard_Index, Saltons_Cosine e CABG representam as normalizações via Índice de Jaccard, Cosseno de Salton e CABG*.
 
 10) "Unidades de Acoplamento" identifica quais foram a unidades responsáveis por promover a intersecção entre L1 e L2.
 
@@ -34,7 +34,7 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 14) Caso nenhuma das unidades de análise se acoplem entre si, será retornada uma mensagem de alerta.
 
-15) Web-App em funcionamento em: https://rafaelcastanha.shinyapps.io/thegenealogiccoupler
+15) Web-App em funcionamento em: https://rafaelcastanha.shinyapps.io/thegenealogicalcoupler
 
 16) Esta aplicação é derivada de The Coupler: https://rafaelcastanha.shinyapps.io/thecoupler
 
@@ -44,4 +44,4 @@ Calcula a intensidade de acoplamento bibliográfico entre orientador e orientand
 
 *A métrica CAG foi desenvolvida por Castanha (2021) em: Coeficiente de acoplamento bibliográfico genealógico para mensurar a intensidade da preservação das correntes teórico-metodológicas nas redes de genealogia acadêmica da área de Matemática (Tese de doutorado em Ciência da Informação - UNESP campus Marília/SP). 
 
-*Consulte "Sobre a métrica CAG"
+*Consulte "Sobre a métrica CABG"
