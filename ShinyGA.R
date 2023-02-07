@@ -11,7 +11,7 @@ library(networkD3)
 
 # UI e Server R
 
-ui <- fluidPage(dashboardPage(title= 'the_coupler: Academic Genealogy', skin="purple", dashboardHeader(title = img(src="gc.png")), 
+ui <- fluidPage(dashboardPage(title= 'the_coupler: Academic Genealogy', skin="purple", dashboardHeader(title = img(src="logogc.png")), 
                               
                               dashboardSidebar(
                                 
@@ -19,11 +19,11 @@ ui <- fluidPage(dashboardPage(title= 'the_coupler: Academic Genealogy', skin="pu
                                 
                                 selectInput("sep", "Separador:", c(" ", Vírgula = ",", Ponto_Vírgula = ";", Tabulado = "\t")),
                                 
-                                selectInput("normalization", "Normalizações:", c("sem normalização", "Cosseno de Salton", "Índice de Jaccard", "CAG")),
+                                selectInput("normalization", "Normalizações:", c("sem normalização", "Cosseno de Salton", "Índice de Jaccard", "CABG")),
                                 
                                 fluidPage(h5(" ")),
                                 
-                                fluidPage(tags$a(href="https://github.com/rafaelcastanha/The-Genealogic-Coupler", "Instruções e Código (GitHub)", style = "margin-left:15px;")),
+                                fluidPage(tags$a(href="https://github.com/rafaelcastanha/The-Genealogical-Coupler", "Instruções e Código (GitHub)", style = "margin-left:15px;")),
                                 
                                 fluidPage(h5(" ")),
                                 
@@ -31,7 +31,7 @@ ui <- fluidPage(dashboardPage(title= 'the_coupler: Academic Genealogy', skin="pu
                                 
                                 fluidPage(h5(" ")),
                                 
-                                fluidPage(tags$a(href="https://zenodo.org/record/7275086#.Y2LqIHbMLIU", "Sobre a métrica CAG", style = "margin-left:15px;")),
+                                fluidPage(tags$a(href="https://zenodo.org/record/7275086#.Y2LqIHbMLIU", "Sobre a métrica CABG", style = "margin-left:15px;")),
                                 
                                 fluidPage(h5(" ")),
                                 
@@ -156,7 +156,7 @@ server <- function(input, output){
     #Intensidades de ABA
     
     df<-as.data.frame(table(stack(ABA)))
-     
+    
     
     if (nrow(df)==0) {
       
@@ -195,12 +195,12 @@ server <- function(input, output){
       Freq_ABA[,novacoluna]<-Freq_ABA$Coupling/sqrt(Freq_ABA$L1*Freq_ABA$L2)
       novacoluna_2<-c("Jaccard_Index")
       Freq_ABA[,novacoluna_2]<-Freq_ABA$Coupling/(Freq_ABA$L1+Freq_ABA$L2-Freq_ABA$Coupling)
-      novacoluna_3<-c("CAG")
+      novacoluna_3<-c("CABG")
       Freq_GA<-Freq_ABA
       Freq_GA[,novacoluna_3]<-Freq_ABA$Coupling/references[1,2]
       Freq_GA<-Freq_GA[1:(length(corpus)-1),]
       Freq_ABA<-Freq_GA
-            
+      
       #Rede de acoplamento bibliográfico
       
       net_list<-filter(Freq_ABA, Coupling>0)
@@ -210,7 +210,7 @@ server <- function(input, output){
       edge_ABA<-net_list$Coupling
       edge_CS<-net_list$Saltons_Cosine
       edge_IJ<-net_list$Jaccard_Index
-      edge_CAG<-net_list$CAG
+      edge_CABG<-net_list$CABG
       
       node1<-as.data.frame(references$units)
       node2<-as.data.frame(references$units)
@@ -230,9 +230,9 @@ server <- function(input, output){
       colnames(ED_jaccard)[1]<-"from"
       colnames(ED_jaccard)[2]<-"to"
       
-      ED_CAG<-mutate(links, width = edge_CAG*10)
-      colnames(ED_CAG)[1]<-"from"
-      colnames(ED_CAG)[2]<-"to"
+      ED_CABG<-mutate(links, width = edge_CABG*10)
+      colnames(ED_CABG)[1]<-"from"
+      colnames(ED_CABG)[2]<-"to"
       
       #Matrizes Adjacencia
       
@@ -250,12 +250,12 @@ server <- function(input, output){
       mtx_aba<-tibble::rownames_to_column(mtx_aba, " ")
       
       #Matriz de Citação
-                
+      
       mtx_cit<-as.data.frame.matrix(mtx_cit)
       mtx_cit<-tibble::rownames_to_column(mtx_cit, " ")
       
       #Matriz Cocitação
-            
+      
       mtx_cocit_df<-as.data.frame(mtx_cocit)
       links_cocit<-data.frame(source=c(mtx_cocit_df$Var1), target=c(mtx_cocit_df$Var2))
       network_cocit<-graph_from_data_frame(d=links_cocit, directed=T)
@@ -265,7 +265,7 @@ server <- function(input, output){
       mtx_adj_cocit_df<-tibble::rownames_to_column(mtx_adj_cocit_df, " ")
       
       #Outputs
-                      
+      
       output$erro<-renderText({
         
         input$runmodel
@@ -275,7 +275,7 @@ server <- function(input, output){
       })
       
       #Plots
-   
+      
       output$PlotCoupling <- renderVisNetwork({
         
         input$runmodel
@@ -307,9 +307,9 @@ server <- function(input, output){
             
             else{
               
-              if  ("CAG" %in% input$normalization)
+              if  ("CABG" %in% input$normalization)
                 
-                visNetwork(node, ED_CAG) %>%
+                visNetwork(node, ED_CABG) %>%
                 visOptions(highlightNearest = TRUE, nodesIdSelection = TRUE) %>%
                 visEdges(arrows = "to") %>%
                 visHierarchicalLayout(sortMethod="directed")
@@ -381,6 +381,6 @@ server <- function(input, output){
   
 }
 
- #Rodar The Genealogic Coupler      
-          
+#Rodar The Genealogical Coupler      
+
 shinyApp(ui, server)
